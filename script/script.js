@@ -131,7 +131,7 @@ const gameFlow = (function() {
                      restartGame()
                  })
             }
-            if (board.gameBoard.length === 9) {
+            else if (board.gameBoard.length === 9 ) {
                 document.getElementById("winner-display").style.display = 'inline'
                 document.getElementById("winner-display").textContent = "Tie"
                 container.style.pointerEvents = "none"
