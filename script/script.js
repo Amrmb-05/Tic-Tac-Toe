@@ -30,6 +30,8 @@ const gameFlow = (function() {
         const container = document.getElementById("container")
         const winnerDisplay = document.getElementById("winner-display")
         const gameEndCont = document.getElementById("game-end")  
+
+
         board.conts.forEach((div,ind) => (div.addEventListener('click', () => {
 
             if (div.textContent != "") {
@@ -37,11 +39,13 @@ const gameFlow = (function() {
             }
             if (board.gameBoard.length % 2 == 0) {
                 player1.marker(ind)
+                div.style.color = '#be123c'
                 console.log(board.gameBoard)
                 console.log(board.gameBoard.length)
             }
             else  {
                 player2.marker(ind)
+                div.style.color = '#0e7490'
                 console.log(board.gameBoard)
                 console.log(board.gameBoard.length)
             }        
@@ -68,8 +72,8 @@ const gameFlow = (function() {
                 
             }
             else if (board.conts[0].textContent == board.conts[4].textContent && board.conts[4].textContent ==  board.conts[8].textContent && board.conts[8].textContent != "") {
-                winnerDisplay.style.display = 'inline'
-                winnerDisplay.textContent = `${board.conts[0].textContent} won`
+                document.getElementById("winner-display").style.display = 'inline'
+                document.getElementById("winner-display").textContent = `${board.conts[0].textContent} won`
                 container.style.pointerEvents = "none"
                 gameEndCont.innerHTML += '<button id=\'restart-btn\'>Restart Game</button>'
                 document.getElementById("restart-btn").addEventListener('click', () => {
@@ -135,7 +139,7 @@ const gameFlow = (function() {
                  gameEndCont.innerHTML += '<button id=\'restart-btn\'>Restart Game</button>'
                  document.getElementById("restart-btn").addEventListener('click', () => {
                      restartGame()
-                     })
+                })
             }
         })))
     function restartGame()  {
